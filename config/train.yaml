@@ -1,0 +1,84 @@
+defaults:
+  - _self_
+
+agent_name: sac
+env: HalfCheetah-v2
+env_type: gym
+algo: DAPD
+keep_ratio: 0.05
+lr: 0.001
+iterative_pruning: True
+continual_pruning: False #keep pruning all the way, if False: stop pruning after reaching some reward
+ips_threshold: 2000 #0.5 # iterative pruning stopping (ips) threshold; reward 2000
+mask_init_method: random # if 'expert', initialize mask with expert. if 'random' uses random sample
+mask_update_mavg: 1
+snip_itr: 1
+hidden_depth: 2
+num_train_steps: 1e6
+replay_buffer_capacity: 1e6
+num_seed_steps: 5000
+eval_frequency: 5000
+num_eval_episodes: 10
+device: cuda
+# logger
+log_frequency: 5000
+log_save_tb: true
+# video recorder
+save_video: false
+# network:
+hidden_dim: 256
+batch_size: 256
+seed: 0
+
+
+# for rlx2 pruning
+use_dynamic_buffer: false #Use dynamic buffer
+buffer_adjustment_interval: 10000 # How often (time steps) we check the buffer
+buffer_threshold: 0.2 # Threshold of policy distance
+buffer_min_size: 200000 # Lower bound of buffer capacity
+buffer_max_size: 1000000 # Upper bound of buffer capacity
+
+
+agent:
+  _target_: agent.sac.SACAgent
+  obs_dim: ???
+  action_dim: ???
+  action_range: ???
+  device: ${device}
+  critic_cfg: ${double_q_critic}
+  actor_cfg: ${diag_gaussian_actor}
+  discount: 0.99
+  init_temperature: 0.1
+  alpha_lr:  ${lr}
+  alpha_betas: [0.9, 0.999]
+  actor_lr: ${lr}
+  actor_betas: [0.9, 0.999]
+  actor_update_frequency: 1
+  critic_lr: ${lr}
+  critic_betas: [0.9, 0.999]
+  critic_tau: 0.005
+  critic_target_update_frequency: 2
+  batch_size: ${batch_size}
+  learnable_temperature: True
+  pruning_algo: ${algo}
+
+
+double_q_critic:
+  _target_: agent.critic.DoubleQCritic
+  obs_dim: ${agent.obs_dim}
+  action_dim: ${agent.action_dim}
+  hidden_dim: ${hidden_dim}
+  hidden_depth: ${hidden_depth}
+
+diag_gaussian_actor:
+  _target_: agent.actor.DiagGaussianActor
+  obs_dim: ${agent.obs_dim}
+  action_dim: ${agent.action_dim}
+  hidden_dim: ${hidden_dim}
+  hidden_depth: ${hidden_depth}
+  log_std_bounds: [-10, 2]
+
+# hydra configuration
+hydra:
+  run:
+    dir: ./runs/

@@ -1,0 +1,47 @@
+name: DAPD
+channels:
+    - https://conda.anaconda.org/pytorch
+    - https://conda.anaconda.org/conda-forge
+dependencies:
+    - python=3.7
+    - pip
+    - numpy
+    - scipy
+    - numba
+    - h5py
+    - matplotlib
+    - scikit-learn
+    - jupyter
+    - mpi4py
+    - patchelf
+    - pip:
+        - filelock
+        - GitPython
+        - gym
+        - gputil
+        - numpy
+        - psutil
+        - clr
+        - opencv-python
+        - torch==1.9.0
+        - torchsummary==1.5.1
+        - torchvision==0.10.0
+        - attrs==19.3.0
+        - gym
+        - pybullet>=3.0.6
+        - tensorflow==1.13.2
+        - tensorflow-estimator
+        - tensorflow-probability
+        - tensorboard
+        - typing==3.7.4.1
+        - stable-baselines==2.10.0
+        - tqdm
+        - quadprog
+        - inputs
+        - filterpy
+        - moviepy
+        - mujoco_py==2.0.2.1
+        - git+https://github.com/denisyarats/dmc2gym.git
+        - git+http://github.com/facebookresearch/hydra@0.11_branch
+        - hydra-submitit-launcher==1.1.5
+        - wandb==0.12.2
