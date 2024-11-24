@@ -1,7 +1,7 @@
 # Efficient Reinforcement Learning by Discovering Neural Pathways
 
 
-This repository contains the official implementation of Data Adaptive Pathway Discovert (DAPD) presented in [Efficient Reinforcement Learning by Discovering Neural Pathways](https://openreview.net/pdf?id=WEoOreP0n5).
+This repository contains the official implementation of **Data Adaptive Pathway Discovery (DAPD)** presented in [Efficient Reinforcement Learning by Discovering Neural Pathways](https://openreview.net/pdf?id=WEoOreP0n5).
 
 If you use this code for your research, please consider citing the paper:
 
