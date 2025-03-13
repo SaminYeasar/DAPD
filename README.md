@@ -6,13 +6,16 @@ This repository contains the official implementation of **Data Adaptive Pathway 
 If you use this code for your research, please consider citing the paper:
 
 ```
-@inproceedings{
-arnob2024efficient,
-title={Efficient Reinforcement Learning by Discovering Neural Pathways},
-author={Samin Yeasar Arnob and Riyasat Ohib and Sergey M. Plis and Amy Zhang and Alessandro Sordoni and Doina Precup},
-booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
-year={2024},
-url={https://openreview.net/forum?id=WEoOreP0n5}
+@inproceedings{arnob2024DAPD,
+ author = {Arnob, Samin Yeasar and Ohib, Riyasat and Plis, Sergey and Zhang, Amy and Sordoni, Alessandro and Precup, Doina},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+ pages = {18660--18694},
+ publisher = {Curran Associates, Inc.},
+ title = {Efficient Reinforcement Learning by Discovering Neural Pathways},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/216f4cd12cfd69d46770bb2b491ae24b-Paper-Conference.pdf},
+ volume = {37},
+ year = {2024}
 }
 ```
 ---
